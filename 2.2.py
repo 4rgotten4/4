@@ -6,7 +6,6 @@ import threading
 import copy
 import logging
 
-# Настройка логирования
 logging.basicConfig(
     filename="phantom_camera_test.log",
     level=logging.DEBUG,
@@ -58,8 +57,8 @@ def update_current_profile(resolution, frame_rate, exposure):
 def show_video():
     try:
         while True:
-            frame = cam.get_live_image()  # Получение живого изображения
-            frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)  # Преобразование для отображения
+            frame = cam.get_live_image()
+            frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
             cv2.imshow("Phantom Live Feed", frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
